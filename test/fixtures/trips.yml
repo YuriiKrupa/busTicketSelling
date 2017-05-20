@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  departure: MyString
+  destination: MyString
+  is_express: false
+  route: one
+
+two:
+  departure: MyString
+  destination: MyString
+  is_express: false
+  route: two

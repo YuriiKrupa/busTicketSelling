@@ -22,5 +22,30 @@
       </li>
     </ul>
     
+  <ul class="navbar-nav mr-right">
+
+        <% if user_signed_in? %>
+        <li class="nav-item active">
+          <%= link_to "#{current_user.full_name}", edit_user_registration_path, class: 'nav-link' %> 
+        </li>   
+
+        <li class="nav-item active">
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'nav-link' %> 
+        </li>        
+
+        <% else %>
+
+        <li class="nav-item active">
+          <%= link_to "Sign in", new_user_session_path, class: 'nav-link' %> 
+        </li>
+
+        <li class="nav-item active">
+          <%= link_to "Sign up", new_user_registration_path, class: 'nav-link'%>
+        </li>
+
+        <% end %>
+
+      </ul>
+
   </div>
 </nav>

@@ -10,7 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170513124851) do
+ActiveRecord::Schema.define(version: 20170520114935) do
+
+  create_table "buses", force: :cascade do |t|
+    t.string   "class"
+    t.integer  "seats"
+    t.string   "licence_number", limit: 6
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "trip_id"
+    t.string   "ticket_state"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["trip_id"], name: "index_tickets_on_trip_id"
+    t.index ["user_id"], name: "index_tickets_on_user_id"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.string   "departure"
+    t.string   "destination"
+    t.boolean  "is_express"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.decimal  "price"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
