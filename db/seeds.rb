@@ -15,5 +15,5 @@ User.where(email: 'admin@admin.com').first_or_create! do |u|
 end
 
 %w(booked bought used expired).each do |u| 
-  TicketStatus.first_or_create!(status:u)
+  TicketStatus.create(status:u)
 end
