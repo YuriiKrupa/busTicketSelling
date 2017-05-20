@@ -1,5 +1,19 @@
 # README
 
+Link to heroku for some reason cteate ticket not working on heroku
+https://stormy-island-10301.herokuapp.com/
+
+Credentials for users
+Is_admin
+email = admin@gmail.com
+password = 123qwe
+
+Normal user
+email = user@user.com
+password = 123qwe
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
