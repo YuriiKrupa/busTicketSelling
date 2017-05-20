@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tickets</h1>
+<h2>Tickets history</h2>
 
 <table>
   <thead>
     <tr>
       <th>User</th>
+      <th>User mail</th>
       <th>Trip</th>
       <th>Ticket status</th>
       <th>Price $</th>
@@ -17,13 +18,16 @@
     <% @tickets.each do |ticket| %>
       <tr>
         <td><%= ticket.user.full_name %></td>
+        <td><%= ticket.user.email %></td>
         <td><%= ticket.trip.departure+' - '+ticket.trip.destination %></td>
         <!-- How to take exact status name??? -->
         <td><%= TicketStatus.find_by(id:ticket.ticket_status_id)  %></td>
         <td><%= ticket.trip.price.to_s+' $'%></td>
+      <% if user_signed_in? && current_user.is_admin %>
         <td><%= link_to 'Show', ticket %></td>
         <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
         <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

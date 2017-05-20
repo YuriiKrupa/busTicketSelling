@@ -11,27 +11,27 @@
 </div>
 <% end %>
 
-<div class="field" style="display: none;">
+<div class="form-group" style="display: none;">
   <%= f.label :user_id %>
-  <%= f.text_field :user_id, :value => current_user.id %>
+  <%= f.text_field :user_id, :value => current_user.id, class: 'form-control' %>
 </div>
 
-<div class="field" style="display: none;">
+<div class="form-group" style="display: none;">
   <%= f.label :trip_id %>
-  <%= f.text_field :trip_id %>
+  <%= f.text_field :trip_id, class: 'form-control' %>
 </div>
 
-<div class="field">
+<div class="form-group">
   <%= f.label :"Trip Departure" %>
-  <%= f.collection_select :trip_id, Trip.order(:departure), :id, :departure, include_blank: false %>
+  <%= f.collection_select :trip_id, Trip.order(:departure), :id, :departure, include_blank: false, class: 'custom-select' %>
 </div>
 
-<div class="field">
+<div class="form-group">
   <%= f.label :ticket_status %>
-  <%= f.collection_select :ticket_status_id, TicketStatus.order(:status), :id, :status, include_blank: false %>
+  <%= f.collection_select :ticket_status_id, TicketStatus.order(:status), :id, :status, include_blank: false, class: 'custom-select' %>
 </div>
 
 <div class="actions">
-  <%= f.submit %>
+  <%= f.submit class: 'btn btn-success btn-lg btn-block' %>
 </div>
 <% end %>
