@@ -5,27 +5,28 @@
 <h2 align="center">Book your ticket</h2>
 
 <div class="form-group">
-      <label for="From">From:</label>
-      <select class="form-control" id="From">
-        <option value="" disabled selected>Select trip route</option>
-        <% trips = Trip.all %>
-        <% trips.each do |t| %>
-          <option value=""><%= t.departure + ' - ' + t.destination%></option>
-        <% end -%>
+  <label for="From">Trip route</label>
+  <select class="form-control" id="From">
+    <option value="" disabled selected>Select trip route</option>
+    <% trips = Trip.all %>
+    <% trips.each do |t| %>
+    <option value=""><%= t.departure + ' - ' + t.destination%></option>
+    <% end -%>
 
-      </select>
-    </div>
+  </select>
+</div>
 
-<div class="row">
+<!-- div class="row">
   <div class="col-6">
     <div class="form-group">
       <label for="From">From:</label>
       <select class="form-control" id="From">
         <option value="" disabled selected>Select departure city</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
+        <%# trips = Trip.all %>
+        <%# trips.each do |t| %>
+        <option value=""><%#= t.departure%></option>
+        <%# end -%>
+
       </select>
     </div>
   </div>
@@ -34,14 +35,11 @@
       <label for="To">To:</label>
       <select class="form-control" id="To">
        <option value="" disabled selected>Select destination city</option>
-        <option value=""><%=Trip.first.departure%></option> 
-        <%# @trip.each do |t| %>
-          <%#= t.departure +" - "+ t.destination %>
-        <%# end -%>
-       <option>1</option>
-       <option>2</option>
-       <option>3</option>
-       <option>4</option>
+       <%# trips = Trip.all %>
+       <%# trips.each do |t| %>
+       <option value=""><%#=t.destination%></option>
+       <%# end -%>
+
      </select>
    </div>
  </div>
@@ -52,6 +50,6 @@
     <label for="example-date-input" class="col-form-label">Departure</label>
     <input class="form-control" type="date" id="example-date-input">
   </div>
-</div>
+</div> -->
 
 <button type="button" class="btn btn-primary btn-lg">Search</button>

@@ -7,7 +7,8 @@
     <tr>
       <th>User</th>
       <th>Trip</th>
-      <th>Ticket state</th>
+      <th>Ticket status</th>
+      <th>Price $</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,9 +16,11 @@
   <tbody>
     <% @tickets.each do |ticket| %>
       <tr>
-        <td><%= ticket.user %></td>
-        <td><%= ticket.trip %></td>
-        <td><%= ticket.ticket_state %></td>
+        <td><%= ticket.user.full_name %></td>
+        <td><%= ticket.trip.departure+' - '+ticket.trip.destination %></td>
+        <!-- How to take exact status name??? -->
+        <td><%= TicketStatus.find_by(id:ticket.ticket_status_id)  %></td>
+        <td><%= ticket.trip.price.to_s+' $'%></td>
         <td><%= link_to 'Show', ticket %></td>
         <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
         <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>

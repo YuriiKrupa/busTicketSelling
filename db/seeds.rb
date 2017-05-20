@@ -13,3 +13,7 @@ User.where(email: 'admin@admin.com').first_or_create! do |u|
   #u.confirmed_at = DateTime.current
   u.is_admin = true
 end
+
+%w(booked bought used expired).each do |u| 
+  TicketStatus.first_or_create!(status:u)
+end
